@@ -1,5 +1,6 @@
 # Ohjelmistotekniikka 2020
-Tämä on repositorio kurssille **Ohjelmistotekniikka 2020** *jee*
+Tämä on repositorio kurssille **Ohjelmistotekniikka 2020** *jee*  
+tässä on vielä muutos epäsynkkaan
 
 ## Tehtävät
 ### Viikko 1
