@@ -8,5 +8,5 @@ Tämä on repositorio kurssille **Ohjelmistotekniikka 2020**
 ### Viikko 2
 [Maksukortti](https://github.com/essipe/ohjelmistotekniikka20/tree/master/laskarit/viikko2/Maksukortti)  
 [Unicafe](https://github.com/essipe/ohjelmistotekniikka20/tree/master/laskarit/viikko2/Unicafe)  
-[testikattavuus.png](https://github.com/essipe/ohjelmistotekniikka20/blob/master/laskarit/viikko2/testikattavuus.png)
+[testikattavuus.png](https://github.com/essipe/ohjelmistotekniikka20/blob/master/laskarit/viikko2/testikattavuus.png)  
 [Alustava määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)
