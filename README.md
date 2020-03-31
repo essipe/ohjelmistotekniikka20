@@ -1,12 +1,9 @@
-# Ohjelmistotekniikka 2020
-Tämä on repositorio kurssille **Ohjelmistotekniikka 2020** 
+# Connect Four
+Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan yrittäen saada ensimmäisenä neljä oman väristään nappulaa suoraan joko pystyyn, vaakaan tai viistoon. 
 
-## Tehtävät
-### Viikko 1
-[gitlog.txt](https://github.com/essipe/ohjelmistotekniikka20/blob/master/laskarit/viikko1/gitlog.txt)  
-[komentorivi.txt](https://github.com/essipe/ohjelmistotekniikka20/blob/master/laskarit/viikko1/komentorivi.txt)  
-### Viikko 2
-[Maksukortti](https://github.com/essipe/ohjelmistotekniikka20/tree/master/laskarit/viikko2/Maksukortti)  
-[Unicafe](https://github.com/essipe/ohjelmistotekniikka20/tree/master/laskarit/viikko2/Unicafe)  
-[testikattavuus.png](https://github.com/essipe/ohjelmistotekniikka20/blob/master/laskarit/viikko2/testikattavuus.png)  
-[Alustava määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)
+## Dokumentaatio  
+* [Alustava määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)  
+* [Työaikakirjanpito](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/tyoaikakirjanpito.md)  
+
+### Käyttöohje
+Tällä hetkellä sovelluksessa pystyy ainoastaan pudottamaan yhden värisiä nappuloita, eikä siinä ole vielä vuoroja.
