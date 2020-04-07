@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import domain.BoardService;
+import domain.Board;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,41 +18,25 @@ import static org.junit.Assert.*;
  */
 public class Connect4Test {
 
-    BoardService board;
+    Board board;
 
     public Connect4Test() {
-        board = new BoardService();
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
+        board = new Board();
     }
 
     @Test
-    public void emptyboarddroptest() {
+    public void emptyBoardDropTest() {
         board.drop(3);
         assertEquals(board.getValue(3, 6), 1);
     }
     @Test
-    public void droptest1() {
+    public void dropTest1() {
         board.drop(3);
         board.drop(3);
-        assertEquals(board.getValue(3, 5), 1);
+        assertEquals(board.getValue(3, 5), 2);
     }
     @Test
-    public void fullcolumndoesnotdrop() {
+    public void fullColumnDoesNotDrop() {
         board.drop(3);
         board.drop(3);
         board.drop(3);
@@ -61,5 +45,19 @@ public class Connect4Test {
         board.drop(3);
         board.drop(3);
         assertEquals(board.getValue(3, 0), 0);
+    }
+    @Test
+    public void turnChanges() {
+        board.drop(2);
+        assertEquals(board.getTurn(), 2);
+        board.drop(2);
+        assertEquals(board.getTurn(), 1);
+    }
+    @Test
+    public void dropTest2() {
+        board.drop(2);
+        assertEquals(board.getValue(2, 6), 1);
+        board.drop(2);
+        assertEquals(board.getValue(2, 5), 2);
     }
 }

@@ -4,6 +4,7 @@ Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan 
 ## Dokumentaatio  
 * [Alustava määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)  
 * [Työaikakirjanpito](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/tyoaikakirjanpito.md)  
+* [Arkkitehtuuri](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/arkkitehtuuri.md)
 
 ### Käyttöohje
-Tällä hetkellä sovelluksessa pystyy ainoastaan pudottamaan yhden värisiä nappuloita, eikä siinä ole vielä vuoroja.
+Sovelluksessa pystyy pelaamaan kaksi pelaajaa vuorotellen tiputellen eri värisiä nappuloita. 
