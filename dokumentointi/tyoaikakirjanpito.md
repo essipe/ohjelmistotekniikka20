@@ -10,4 +10,6 @@
 |7.4.   | 2t | projektin edistäminen, vuorot ja koodi checkstylen mukaiseksi|
 |       | 2t | asettelun kanssa taistelua, ei oikein onnistunut |
 |       | 1t | uusia testejä |
-| yht. | 16t | |
+|21.4.  | 5t | projektin edistämistä, voiton tarkistus |
+|       | 4t | asettelun parantelua, uuden pelin aloittaminen, määrittelyjen korjauksia | 
+| yht. | 25t | |

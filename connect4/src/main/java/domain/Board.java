@@ -93,7 +93,7 @@ public class Board {
             }
         }
     }
-
+    //doesn't work yet
     public void checkDiagonal(int col, int row) {
         int adjacent1 = 0;
         int adjacent2 = 0;

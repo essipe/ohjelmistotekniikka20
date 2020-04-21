@@ -7,7 +7,6 @@ package main;
  */
 
 import ui.Connect4UI;
-import javafx.application.Application;
 
 /**
  *
@@ -16,7 +15,7 @@ import javafx.application.Application;
 public class Main {
     
     public static void main(String[] args) {
-        Application.launch(Connect4UI.class);
+        Connect4UI.main(args);
     }
     
 }

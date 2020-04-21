@@ -33,27 +33,31 @@ public class Connect4UI extends Application {
     BorderPane borderpane;
     GridPane gridpane;
     Board board;
-    Label turn = new Label("Turn: Player 1");
+    Label turn;
     Label win = new Label();
     Stage window;
+
     @Override
     public void start(Stage window) {
         this.window = window;
         startGame(window);
     }
+
     public void startGame(Stage window) {
         buttons = new HBox();
-        winmenu  = new HBox();
+        winmenu = new HBox();
         borderpane = new BorderPane();
         gridpane = new GridPane();
         board = new Board();
+        turn = new Label("Turn: Player 1");
         setButtons();
         setGrid();
         setMenu();
-        borderpane.setRight(menu);
+        borderpane.setCenter(menu);
         borderpane.setTop(buttons);
-        borderpane.setCenter(gridpane);
+        borderpane.setLeft(gridpane);
         borderpane.setPrefSize(450, 350);
+        borderpane.setPadding(new Insets(5, 0, 10, 10));
         Scene scene = new Scene(borderpane);
         window.setTitle("Connect Four");
         window.setScene(scene);
@@ -76,9 +80,9 @@ public class Connect4UI extends Application {
             button.setMinSize(40, 40);
             button.setMaxSize(40, 40);
             buttons.getChildren().add(button);
-            buttons.setSpacing(2);
-            buttons.setPadding(new Insets(2));
-            buttons.setAlignment(Pos.BASELINE_CENTER);
+            buttons.setSpacing(3);
+            buttons.setPadding(new Insets(5, 0, 10, 13));
+            buttons.setAlignment(Pos.BASELINE_LEFT);
             button.setOnAction((ActionEvent event) -> {
                 int col = board.drop(row);
                 if (col != 0) {
@@ -128,8 +132,15 @@ public class Connect4UI extends Application {
             return circle;
         }
     }
+
     public void showWinningText() {
-        Label text = new Label("Player "+ board.getTurn() + " has won!");
+        int winner;
+        if (board.getTurn() == 1) {
+            winner = 2;
+        } else {
+            winner = 1;
+        }
+        Label text = new Label("Player " + winner + " has won!");
         Button newGame = new Button("New game");
         winmenu.getChildren().add(text);
         winmenu.getChildren().add(newGame);
@@ -139,6 +150,7 @@ public class Connect4UI extends Application {
         borderpane.setTop(winmenu);
         winmenu.setAlignment(Pos.BASELINE_CENTER);
         winmenu.setSpacing(5);
+        winmenu.setPadding(new Insets(10, 20, 20, 0));
     }
 
     /**
