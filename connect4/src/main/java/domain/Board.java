@@ -14,30 +14,33 @@ import javafx.scene.shape.Circle;
  */
 public class Board {
 
-    int rows = 7;
-    int columns = 6;
-    int[][] board = new int[rows + 1][columns + 1];
+    int cols = 7;
+    int rows = 6;
+    int[][] board = new int[cols + 1][rows + 1];
     int turn = 1;
+    boolean win = false;
 
     public Board() {
     }
 
-    public int drop(int row) {
-        int col = 0;
+    public int drop(int col) {
+        int row = 0;
         for (int i = 6; i > 0; i--) {
-            if (board[row][i] == 0) {
-                board[row][i] = turn;
-                col = i;
-                System.out.println("Dropped disk in " + row + ", " + col);
+            if (board[col][i] == 0) {
+                board[col][i] = turn;
+                row = i;
+                System.out.println("Dropped disk in " + col + ", " + row);
                 break;
-            } else if (board[row][1] != 0) {
+            } else if (board[col][1] != 0) {
                 System.out.println("Full!");
                 break;
             }
         }
+        checkWin(col, row);
         changeTurn();
-        return col;
+        return row;
     }
+
     public void changeTurn() {
         if (turn == 1) {
             turn = 2;
@@ -45,12 +48,83 @@ public class Board {
             turn = 1;
         }
     }
-    public int getValue(int row, int column) {
-        return board[row][column];
+
+    public boolean checkWin(int col, int row) {
+        checkHorizontal(col, row);
+        checkVertical(col, row);
+        //checkDiagonal(col, row);
+        return win;
+    }
+
+    public void checkHorizontal(int col, int row) {
+        int adjacent = 0;
+        for (int i = 0; i < cols; i++) {
+            if (board[col - Math.min(3, col - 1) + i][row] == turn) {
+                adjacent++;
+            } else {
+                adjacent = 0;
+            }
+            if (adjacent == 4) {
+                System.out.println("You won!");
+                win = true;
+                break;
+            }
+            if (col - Math.min(3, col - 1) + i == cols) {
+                break;
+            }
+        }
+    }
+
+    public void checkVertical(int col, int row) {
+        int adjacent = 0;
+        for (int i = 0; i < rows; i++) {
+            if (board[col][row - Math.min(3, row - 1) + i] == turn) {
+                adjacent++;
+            } else {
+                adjacent = 0;
+            }
+            if (adjacent == 4) {
+                System.out.println("You won!");
+                win = true;
+                break;
+            }
+            if (row - Math.min(3, row - 1) + i == rows) {
+                break;
+            }
+        }
+    }
+
+    public void checkDiagonal(int col, int row) {
+        int adjacent1 = 0;
+        int adjacent2 = 0;
+        for (int i = 0; i < 6; i++) {
+            if (board[col - Math.min(3, col - 1) + i][row - Math.min(3, row - 1) + i] == turn) {
+                adjacent1++;
+            } else {
+                adjacent1 = 0;
+            }
+            if (adjacent1 == 4 || adjacent2 == 4) {
+                System.out.println("You won!");
+                win = true;
+                break;
+            }
+            if (row - Math.min(3, row - 1) + i == rows) {
+                break;
+            }
+        }
+    }
+
+    public int getValue(int col, int row) {
+        return board[col][row];
     }
 
     public int getTurn() {
         return turn;
     }
+
+    public boolean isWin() {
+        return win;
+    }
     
+
 }

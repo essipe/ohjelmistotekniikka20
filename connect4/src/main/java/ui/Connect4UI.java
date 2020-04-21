@@ -27,18 +27,30 @@ import javafx.stage.Stage;
  */
 public class Connect4UI extends Application {
 
-    HBox buttons = new HBox();
-    VBox menu = new VBox();
-    BorderPane borderpane = new BorderPane();
-    GridPane gridpane = new GridPane();
-    Board board = new Board();
-
+    HBox buttons;
+    HBox winmenu;
+    VBox menu;
+    BorderPane borderpane;
+    GridPane gridpane;
+    Board board;
+    Label turn = new Label("Turn: Player 1");
+    Label win = new Label();
+    Stage window;
     @Override
     public void start(Stage window) {
+        this.window = window;
+        startGame(window);
+    }
+    public void startGame(Stage window) {
+        buttons = new HBox();
+        winmenu  = new HBox();
+        borderpane = new BorderPane();
+        gridpane = new GridPane();
+        board = new Board();
         setButtons();
         setGrid();
         setMenu();
-        //borderpane.setRight(menu);
+        borderpane.setRight(menu);
         borderpane.setTop(buttons);
         borderpane.setCenter(gridpane);
         borderpane.setPrefSize(450, 350);
@@ -49,9 +61,11 @@ public class Connect4UI extends Application {
     }
 
     public void setMenu() {
-        Label turn = new Label("turn:" + board.getTurn());
+        menu = new VBox();
         menu.getChildren().add(turn);
-        menu.setAlignment(Pos.TOP_LEFT);
+        menu.getChildren().add(win);
+        menu.setAlignment(Pos.CENTER);
+        menu.setPadding(new Insets(5));
     }
 
     public void setButtons() {
@@ -100,6 +114,10 @@ public class Connect4UI extends Application {
     }
 
     public Circle dropDisk() {
+        turn.setText("Turn: Player " + board.getTurn());
+        if (board.isWin()) {
+            showWinningText();
+        }
         if (board.getTurn() == 1) {
             Circle circle = new Circle(20);
             circle.setFill(Color.RED);
@@ -109,6 +127,18 @@ public class Connect4UI extends Application {
             circle.setFill(Color.YELLOW);
             return circle;
         }
+    }
+    public void showWinningText() {
+        Label text = new Label("Player "+ board.getTurn() + " has won!");
+        Button newGame = new Button("New game");
+        winmenu.getChildren().add(text);
+        winmenu.getChildren().add(newGame);
+        newGame.setOnAction(((event) -> {
+            startGame(window);
+        }));
+        borderpane.setTop(winmenu);
+        winmenu.setAlignment(Pos.BASELINE_CENTER);
+        winmenu.setSpacing(5);
     }
 
     /**
