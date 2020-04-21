@@ -8,7 +8,8 @@ Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan 
 
 ## Käyttöohje
 Sovelluksessa pystyy pelaamaan kaksi pelaajaa vuorotellen tiputellen eri värisiä nappuloita. 
-
+## Releaset
+[Viikko 5](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/viikko5)
 ## Komentorivikomennot
 ##### Testit ja testikattavuusraportti
 ```mvn test jacoco:report```
