@@ -94,25 +94,25 @@ public class Board {
         }
     }
     //doesn't work yet
-    public void checkDiagonal(int col, int row) {
-        int adjacent1 = 0;
-        int adjacent2 = 0;
-        for (int i = 0; i < 6; i++) {
-            if (board[col - Math.min(3, col - 1) + i][row - Math.min(3, row - 1) + i] == turn) {
-                adjacent1++;
-            } else {
-                adjacent1 = 0;
-            }
-            if (adjacent1 == 4 || adjacent2 == 4) {
-                System.out.println("You won!");
-                win = true;
-                break;
-            }
-            if (row - Math.min(3, row - 1) + i == rows) {
-                break;
-            }
-        }
+    /*    public void checkDiagonal(int col, int row) {
+    int adjacent1 = 0;
+    int adjacent2 = 0;
+    for (int i = 0; i < 6; i++) {
+    if (board[col - Math.min(3, col - 1) + i][row - Math.min(3, row - 1) + i] == turn) {
+    adjacent1++;
+    } else {
+    adjacent1 = 0;
     }
+    if (adjacent1 == 4 || adjacent2 == 4) {
+    System.out.println("You won!");
+    win = true;
+    break;
+    }
+    if (row - Math.min(3, row - 1) + i == rows) {
+    break;
+    }
+    }
+    }*/
 
     public int getValue(int col, int row) {
         return board[col][row];

@@ -60,4 +60,26 @@ public class Connect4Test {
         board.drop(2);
         assertEquals(board.getValue(2, 5), 2);
     }
+    @Test
+    public void winTest1() {
+        board.drop(1);
+        board.drop(1);
+        board.drop(2);
+        board.drop(2);
+        board.drop(3);
+        board.drop(3);
+        board.drop(4);
+        assertEquals(board.isWin(), true);
+    }
+    @Test
+    public void winTest2() {
+        board.drop(2);
+        board.drop(3);
+        board.drop(2);
+        board.drop(3);
+        board.drop(2);
+        board.drop(3);
+        board.drop(2);
+        assertEquals(board.isWin(), true);
+    }
 }
