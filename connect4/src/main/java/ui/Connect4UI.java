@@ -13,10 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -29,33 +26,61 @@ public class Connect4UI extends Application {
 
     HBox buttons;
     HBox winmenu;
-    VBox menu;
+    VBox sideMenu;
     BorderPane borderpane;
-    GridPane gridpane;
+    GridPane gameGrid;
     Board board;
     Label turn;
-    Label win = new Label();
+    Label win;
     Stage window;
 
     @Override
     public void start(Stage window) {
         this.window = window;
-        startGame(window);
+        mainMenu(window);
     }
 
-    public void startGame(Stage window) {
+    /**
+     * Sets the first menu window that opens when the application is run
+     *
+     * @param window
+     */
+    public void mainMenu(Stage window) {
+        VBox mainmenu = new VBox();
+        Label text = new Label("Welcome to Connect Four! \n In this game you play against your opponent taking turns \n dropping your disks into a grid and trying to be the first one \n to get four of your own disks in a vertical, horizontal or diagonal line.");
+        Button start = new Button("Start game");
+        start.setOnAction((event) -> {
+            initGame(window);
+        });
+        mainmenu.getChildren().add(text);
+        mainmenu.getChildren().add(start);
+        mainmenu.setAlignment(Pos.CENTER);
+        mainmenu.setPadding(new Insets(5));
+        Scene menuscene = new Scene(mainmenu);
+        window.setScene(menuscene);
+        window.setTitle("Connect Four");
+        window.show();
+    }
+
+    /**
+     * Initializes game window
+     *
+     * @param window
+     */
+    public void initGame(Stage window) {
         buttons = new HBox();
         winmenu = new HBox();
         borderpane = new BorderPane();
-        gridpane = new GridPane();
+        gameGrid = new GridPane();
         board = new Board();
         turn = new Label("Turn: Player 1");
+        win = new Label();
         setButtons();
         setGrid();
         setMenu();
-        borderpane.setCenter(menu);
+        borderpane.setCenter(sideMenu);
         borderpane.setTop(buttons);
-        borderpane.setLeft(gridpane);
+        borderpane.setLeft(gameGrid);
         borderpane.setPrefSize(450, 350);
         borderpane.setPadding(new Insets(5, 0, 10, 10));
         Scene scene = new Scene(borderpane);
@@ -64,18 +89,24 @@ public class Connect4UI extends Application {
         window.show();
     }
 
+    /**
+     * Initializes the side menu bar
+     */
     public void setMenu() {
-        menu = new VBox();
-        menu.getChildren().add(turn);
-        menu.getChildren().add(win);
-        menu.setAlignment(Pos.CENTER);
-        menu.setPadding(new Insets(5));
+        sideMenu = new VBox();
+        sideMenu.getChildren().add(turn);
+        sideMenu.getChildren().add(win);
+        sideMenu.setAlignment(Pos.CENTER);
+        sideMenu.setPadding(new Insets(5));
     }
 
+    /**
+     * Initializes the buttons used to drop disks
+     */
     public void setButtons() {
         for (int i = 1; i <= 7; i++) {
             int row = i;
-            final Button button = new Button();
+            Button button = new Button();
             button.setShape(new Circle(20));
             button.setMinSize(40, 40);
             button.setMaxSize(40, 40);
@@ -86,28 +117,36 @@ public class Connect4UI extends Application {
             button.setOnAction((ActionEvent event) -> {
                 int col = board.drop(row);
                 if (col != 0) {
-                    Circle disk = dropDisk();
-                    gridpane.add(disk, row, col + 1);
+                    Circle disk = drawDisk();
+                    gameGrid.add(disk, row, col + 1);
                 }
             });
         }
     }
 
+    /**
+     * Initializes the game grid
+     */
     public void setGrid() {
-        gridpane.setStyle("-fx-background-color: #2B60DE;");
-        gridpane.setHgap(3);
-        gridpane.setVgap(3);
-        gridpane.setPadding(new Insets(10, 10, 10, 10));
-        gridpane.setMinSize(323, 280);
-        gridpane.setMaxSize(323, 280);
+        gameGrid.setStyle("-fx-background-color: #2B60DE;");
+        gameGrid.setHgap(3);
+        gameGrid.setVgap(3);
+        gameGrid.setPadding(new Insets(10, 10, 10, 10));
+        gameGrid.setMinSize(323, 280);
+        gameGrid.setMaxSize(323, 280);
         for (int x = 1; x <= 7; x++) {
             for (int y = 1; y <= 6; y++) {
                 Circle bg = backgroundCircle();
-                gridpane.add(bg, x, y + 1);
+                gameGrid.add(bg, x, y + 1);
             }
         }
     }
 
+    /**
+     * Method for creating one background circle to first fill in the grid
+     *
+     * @return
+     */
     public Circle backgroundCircle() {
         Circle circle = new Circle(20);
         circle.setFill(Color.ALICEBLUE);
@@ -117,7 +156,12 @@ public class Connect4UI extends Application {
         return circle;
     }
 
-    public Circle dropDisk() {
+    /**
+     * Draws the dropped disk on the grid
+     *
+     * @return
+     */
+    public Circle drawDisk() {
         turn.setText("Turn: Player " + board.getTurn());
         if (board.isWin()) {
             showWinningText();
@@ -133,6 +177,10 @@ public class Connect4UI extends Application {
         }
     }
 
+    /**
+     * If a player has won, this method sets the winning text and a button to
+     * start a new game
+     */
     public void showWinningText() {
         int winner;
         if (board.getTurn() == 1) {
@@ -145,7 +193,7 @@ public class Connect4UI extends Application {
         winmenu.getChildren().add(text);
         winmenu.getChildren().add(newGame);
         newGame.setOnAction(((event) -> {
-            startGame(window);
+            initGame(window);
         }));
         borderpane.setTop(winmenu);
         winmenu.setAlignment(Pos.BASELINE_CENTER);

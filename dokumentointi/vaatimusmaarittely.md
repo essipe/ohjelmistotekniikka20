@@ -8,7 +8,11 @@ Sovellus on Connect Four -peli, missä kaksi pelaajaa pelaavat toisiaan vastaan 
 - [x] Oikealla lukee vuorossa oleva pelaaja.
 - [x] Peli loppuu kun toinen pelaaja saa 4 nappulaa pystyyn tai vaakaan.
 - [x] Voittaja ilmoitetaan, jonka jälkeen "New game" -nappi aloittaa uuden pelin.
-- Peli loppuu, kun toinen pelaaja saa 4 nappulaa viistoon.
+- [x] Peli loppuu, kun toinen pelaaja saa 4 nappulaa viistoon.
+- [x] Menu-näkymä pelin alkuun
+- Käyttäjäolio, jolla nimimerkki ja nappulan väri
+- Jonkinlainen tallennus esim. statistiikoille
+- Koodin eriyttäminen uusiin luokkiin, jos se tuntuu tarpeelliselta
 ## Jatkokehitysideoita  
 * Voi valita värin  
 * Voi muuttaa halutun rivin pituutta, esim yhdistä 3 tai 5

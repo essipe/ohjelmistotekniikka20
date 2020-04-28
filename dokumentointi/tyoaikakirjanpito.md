@@ -12,4 +12,6 @@
 |       | 1t | uusia testejä |
 |21.4.  | 5t | projektin edistämistä, voiton tarkistus |
 |       | 4t | asettelun parantelua, uuden pelin aloittaminen, määrittelyjen korjauksia | 
-| yht. | 25t | |
+| 28.4.| 4h | voiton tarkistus diagonaaliin, javadocin kirjoittamista, uuden näkymän luominen|
+| | 2h | testausta ja dokumentointia |
+| yht. | 29t | |
