@@ -66,7 +66,7 @@ public class Board {
      *
      * @param col The column the disk has dropped into
      * @param row The row the disk has dropped into
-     * @return
+     * @return Returns true if player won, false if not
      */
     public boolean checkWin(int col, int row) {
         checkHorizontal(col, row);

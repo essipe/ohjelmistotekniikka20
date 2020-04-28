@@ -43,7 +43,7 @@ public class Connect4UI extends Application {
     /**
      * Sets the first menu window that opens when the application is run
      *
-     * @param window
+     * @param window game window
      */
     public void mainMenu(Stage window) {
         VBox mainmenu = new VBox();
@@ -65,7 +65,7 @@ public class Connect4UI extends Application {
     /**
      * Initializes game window
      *
-     * @param window
+     * @param window gam window
      */
     public void initGame(Stage window) {
         buttons = new HBox();
@@ -145,7 +145,7 @@ public class Connect4UI extends Application {
     /**
      * Method for creating one background circle to first fill in the grid
      *
-     * @return
+     * @return Returns the background circle
      */
     public Circle backgroundCircle() {
         Circle circle = new Circle(20);
@@ -159,7 +159,7 @@ public class Connect4UI extends Application {
     /**
      * Draws the dropped disk on the grid
      *
-     * @return
+     * @return Returns the drawn disk
      */
     public Circle drawDisk() {
         turn.setText("Turn: Player " + board.getTurn());

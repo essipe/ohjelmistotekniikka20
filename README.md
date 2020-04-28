@@ -7,7 +7,7 @@ Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan 
 * [Arkkitehtuuri](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/arkkitehtuuri.md)
 
 ## Käyttöohje
-Sovelluksessa pystyy pelaamaan kaksi pelaajaa vuorotellen tiputellen eri värisiä nappuloita. 
+[Käyttöohje](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/kayttoohje.md)
 ## Releaset
 [Viikko 5](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/viikko5)
 ## Komentorivikomennot
@@ -18,6 +18,8 @@ Testikattavuusraportti selaimella target/site/jacoco/index.html
 ```mvn package```
 generoi hakemistoon target suoritettavan jar-tiedoston, jonka voi suorittaa komennolla 
 ```java -jar target/connect4-1.0-SNAPSHOT.jar```
+##### JavaDoc
+```mvn javadoc:javadoc``` luo javadocin, jota voi tarkastella selaimella /target/site/apidocs/index.html
 ##### Checkstyle
 ```mvn jxr:jxr checkstyle:checkstyle```
 tarkistaa checkstyle-määrittelyn mukaiset tarkistukset, selaimella target/site/checkstyle.html

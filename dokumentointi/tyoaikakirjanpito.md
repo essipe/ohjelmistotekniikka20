@@ -14,4 +14,4 @@
 |       | 4t | asettelun parantelua, uuden pelin aloittaminen, määrittelyjen korjauksia | 
 | 28.4.| 4h | voiton tarkistus diagonaaliin, javadocin kirjoittamista, uuden näkymän luominen|
 | | 2h | testausta ja dokumentointia |
-| yht. | 29t | |
+| yht. | 31t | |
