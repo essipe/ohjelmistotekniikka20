@@ -16,13 +16,17 @@ public class Board {
     int[][] board;
     int turn;
     boolean win;
+    boolean boardFull;
+    int winner;
 
-    public Board() {
-        cols = 7;
-        rows = 6;
-        board = new int[cols + 1][rows + 1];
+    public Board(int columns, int rows) {
+        this.cols = columns;
+        this.rows = rows;
+        board = new int[columns + 1][rows + 1];
         turn = 1;
         win = false;
+        boardFull = false;
+        winner = 0;
     }
 
     /**
@@ -34,20 +38,30 @@ public class Board {
      */
     public int drop(int col) {
         int row = 0;
-        for (int i = 6; i > 0; i--) {
+        for (int i = rows; i > 0; i--) {
             if (board[col][i] == 0) {
                 board[col][i] = turn;
                 row = i;
-                System.out.println("Dropped disk in " + col + ", " + row);
+                checkWin(col, row);
+                checkIfBoardFull();
+                changeTurn();
                 break;
             } else if (board[col][1] != 0) {
-                System.out.println("Full!");
                 break;
             }
         }
-        checkWin(col, row);
-        changeTurn();
         return row;
+    }
+
+    public boolean checkIfBoardFull() {
+        for (int j = 1; j <= cols; j++) {
+            if (board[j][1] == 0) {
+                boardFull = false;
+                break;
+            }
+            boardFull = true;
+        }
+        return boardFull;
     }
 
     /**
@@ -92,8 +106,8 @@ public class Board {
                 adjacent = 0;
             }
             if (adjacent == 4) {
-                System.out.println("You won!");
                 win = true;
+                winner = turn;
                 break;
             }
             if (col - Math.min(3, col - 1) + i == cols) {
@@ -118,8 +132,8 @@ public class Board {
                 adjacent = 0;
             }
             if (adjacent == 4) {
-                System.out.println("You won!");
                 win = true;
+                winner = turn;
                 break;
             }
             if (row - Math.min(3, row - 1) + i == rows) {
@@ -145,8 +159,8 @@ public class Board {
                 adjacent1 = 0;
             }
             if (adjacent1 == 4) {
-                System.out.println("You won!");
                 win = true;
+                winner = turn;
                 break;
             }
             if (row - startCheckingFrom1 + i == rows || col - startCheckingFrom1 + i == cols) {
@@ -164,7 +178,7 @@ public class Board {
      */
     public void checkDiagonalUp(int col, int row) {
         int adjacent2 = 0;
-        int startCheckingFrom2 = Math.min(col, 7 - row) - 1;
+        int startCheckingFrom2 = Math.min(col, cols - row) - 1;
         for (int i = 0; i < 6; i++) {
             if (board[col - startCheckingFrom2 + i][row + startCheckingFrom2 - i] == turn) {
                 adjacent2++;
@@ -172,8 +186,8 @@ public class Board {
                 adjacent2 = 0;
             }
             if (adjacent2 == 4) {
-                System.out.println("You won!");
                 win = true;
+                winner = turn;
                 break;
             }
             if (col - startCheckingFrom2 + i == cols || row + startCheckingFrom2 - i == 1) {
@@ -190,8 +204,18 @@ public class Board {
         return turn;
     }
 
-    public boolean isWin() {
+    public boolean getWin() {
         return win;
     }
+
+    public int getWinner() {
+        return winner;
+    }
+
+    public boolean getBoardFull() {
+        return boardFull;
+    }
+    
+    
 
 }

@@ -12,6 +12,9 @@
 |       | 1t | uusia testejä |
 |21.4.  | 5t | projektin edistämistä, voiton tarkistus |
 |       | 4t | asettelun parantelua, uuden pelin aloittaminen, määrittelyjen korjauksia | 
-| 28.4.| 4h | voiton tarkistus diagonaaliin, javadocin kirjoittamista, uuden näkymän luominen|
+| 28.4.| 4t | voiton tarkistus diagonaaliin, javadocin kirjoittamista, uuden näkymän luominen|
 | | 2h | testausta ja dokumentointia |
-| yht. | 31t | |
+| 9.5. | 3t | mahdollisuus valita peliruudun koko ja pelin loppuminen siinä tapauksessa, jos kumpikaan ei voita |
+| 10.5.| 3t | pelaajille oma nimimerkki ja tietokanta, mikä tallentaa ja lukee edellisen pelin voittajan |
+| 
+| yht. | 37t | |

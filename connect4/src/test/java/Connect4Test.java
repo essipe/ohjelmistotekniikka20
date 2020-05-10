@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 
+import dao.StatsDao;
 import domain.Board;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,9 +16,11 @@ import static org.junit.Assert.*;
 public class Connect4Test {
 
     Board board;
+    StatsDao SD;
 
     public Connect4Test() {
-        board = new Board();
+        board = new Board(7, 6);
+        SD = new StatsDao("testwins.txt");
     }
 
     @Test
@@ -29,12 +28,14 @@ public class Connect4Test {
         board.drop(3);
         assertEquals(board.getValue(3, 6), 1);
     }
+
     @Test
     public void dropTest1() {
         board.drop(3);
         board.drop(3);
         assertEquals(board.getValue(3, 5), 2);
     }
+
     @Test
     public void fullColumnDoesNotDrop() {
         board.drop(3);
@@ -46,6 +47,7 @@ public class Connect4Test {
         board.drop(3);
         assertEquals(board.getValue(3, 0), 0);
     }
+
     @Test
     public void turnChanges() {
         board.drop(2);
@@ -53,6 +55,7 @@ public class Connect4Test {
         board.drop(2);
         assertEquals(board.getTurn(), 1);
     }
+
     @Test
     public void dropTest2() {
         board.drop(2);
@@ -60,8 +63,9 @@ public class Connect4Test {
         board.drop(2);
         assertEquals(board.getValue(2, 5), 2);
     }
+
     @Test
-    public void winTest1() {
+    public void winTestHorizontal() {
         board.drop(1);
         board.drop(1);
         board.drop(2);
@@ -69,10 +73,12 @@ public class Connect4Test {
         board.drop(3);
         board.drop(3);
         board.drop(4);
-        assertEquals(board.isWin(), true);
+        assertEquals(board.getWin(), true);
+        assertEquals(board.getWinner(), 1);
     }
+
     @Test
-    public void winTest2() {
+    public void winTestVertical() {
         board.drop(2);
         board.drop(3);
         board.drop(2);
@@ -80,10 +86,11 @@ public class Connect4Test {
         board.drop(2);
         board.drop(3);
         board.drop(2);
-        assertEquals(board.isWin(), true);
+        assertEquals(board.getWin(), true);
     }
+
     @Test
-    public void winTest3() {
+    public void winTestDiagonalDown() {
         board.drop(6);
         board.drop(5);
         board.drop(5);
@@ -95,6 +102,71 @@ public class Connect4Test {
         board.drop(3);
         board.drop(1);
         board.drop(3);
-        assertEquals(board.isWin(), true);
+        assertEquals(board.getWin(), true);
+    }
+
+    @Test
+    public void winTestDiagonalUp() {
+        board.drop(1);
+        board.drop(2);
+        board.drop(2);
+        board.drop(3);
+        board.drop(4);
+        board.drop(3);
+        board.drop(3);
+        board.drop(4);
+        board.drop(4);
+        board.drop(5);
+        board.drop(4);
+        assertEquals(board.getWin(), true);
+    }
+
+    @Test
+    public void boardFullTest() {
+        Board smallerBoard = new Board(6, 5);
+        smallerBoard.drop(1);
+        smallerBoard.drop(1);
+        smallerBoard.drop(1);
+        smallerBoard.drop(1);
+        smallerBoard.drop(1);
+        smallerBoard.drop(2);
+        smallerBoard.drop(2);
+        smallerBoard.drop(2);
+        smallerBoard.drop(2);
+        smallerBoard.drop(2);
+        smallerBoard.drop(3);
+        smallerBoard.drop(3);
+        smallerBoard.drop(3);
+        smallerBoard.drop(3);
+        smallerBoard.drop(3);
+        smallerBoard.drop(5);
+        smallerBoard.drop(4);
+        smallerBoard.drop(4);
+        smallerBoard.drop(4);
+        smallerBoard.drop(4);
+        smallerBoard.drop(4);
+        smallerBoard.drop(6);
+        smallerBoard.drop(6);
+        smallerBoard.drop(6);
+        smallerBoard.drop(6);
+        smallerBoard.drop(6);
+        smallerBoard.drop(5);
+        smallerBoard.drop(5);
+        smallerBoard.drop(5);
+        smallerBoard.drop(5);
+        assertEquals(smallerBoard.getBoardFull(), true);
+    }
+
+    @Test
+    public void textFileTest() {
+        String winner = SD.getLastWinner();
+        assertEquals(winner, "essi");
+    }
+
+    @Test
+    public void textFileTest2() throws Exception {
+        SD.writeWinner("someoneelse");
+        assertEquals(SD.getLastWinner(), "someoneelse");
+        SD.writeWinner("essi");
     }
 }
