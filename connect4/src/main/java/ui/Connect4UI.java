@@ -58,17 +58,15 @@ public class Connect4UI extends Application {
     public void mainMenu(Stage window) {
         VBox mainmenu = new VBox();
         playerNames = new HashMap<>();
-        Label text = new Label("Welcome to Connect Four! \n In this game you play against your opponent taking turns \n dropping your disks into a grid and trying to be the first one \n to get four of your own disks in a vertical, horizontal or diagonal line. \n");
-        Label text2 = new Label("\n Game starts on a standard 7x6 grid by default. \n If you want to change the size of the grid, select here.");
         Button start = new Button("Start game");
         start.setOnAction((event) -> {
             playerNames.put(1, player1Field.getText());
             playerNames.put(2, player2Field.getText());
             initGame(window);
         });
-        mainmenu.getChildren().add(text);
+        mainmenu.getChildren().add(new Label("Welcome to Connect Four! \n In this game you play against your opponent taking turns \n dropping your disks into a grid and trying to be the first one \n to get four of your own disks in a vertical, horizontal or diagonal line. \n"));
         mainmenu.getChildren().add(textFields());
-        mainmenu.getChildren().add(text2);
+        mainmenu.getChildren().add(new Label("\n Game starts on a standard 7x6 grid by default. \n If you want to change the size of the grid, select here."));
         mainmenu.getChildren().add(boardSizeButtons());
         mainmenu.getChildren().add(start);
         mainmenu.setAlignment(Pos.CENTER);
@@ -217,6 +215,23 @@ public class Connect4UI extends Application {
      * @return Returns the drawn disk
      */
     public Circle drawDisk() {
+        textChanges();
+        if (board.getTurn() == 1) {
+            Circle circle = new Circle(20);
+            circle.setFill(Color.RED);
+            return circle;
+        } else {
+            Circle circle = new Circle(20);
+            circle.setFill(Color.YELLOW);
+            return circle;
+        }
+    }
+
+    /**
+     * Changes turn text after every turn and checks if win text or tie text
+     * needs to be shown
+     */
+    public void textChanges() {
         turn.setText("Turn: " + playerNames.get(board.getTurn()));
         if (board.getWin()) {
             showGameOverText(1);
@@ -228,15 +243,6 @@ public class Connect4UI extends Application {
         }
         if (board.getBoardFull() && !board.getWin()) {
             showGameOverText(2);
-        }
-        if (board.getTurn() == 1) {
-            Circle circle = new Circle(20);
-            circle.setFill(Color.RED);
-            return circle;
-        } else {
-            Circle circle = new Circle(20);
-            circle.setFill(Color.YELLOW);
-            return circle;
         }
     }
 
