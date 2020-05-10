@@ -16,5 +16,5 @@
 | | 2h | testausta ja dokumentointia |
 | 9.5. | 3t | mahdollisuus valita peliruudun koko ja pelin loppuminen siinä tapauksessa, jos kumpikaan ei voita |
 | 10.5.| 3t | pelaajille oma nimimerkki ja tietokanta, mikä tallentaa ja lukee edellisen pelin voittajan |
-| 
-| yht. | 37t | |
+|  | 3t | testejä, dokumentointia |
+| yht. | 40t | |

@@ -2,7 +2,7 @@
 Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan yrittäen saada ensimmäisenä neljä oman väristään nappulaa suoraan joko pystyyn, vaakaan tai viistoon. 
 
 ## Dokumentaatio  
-* [Alustava määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)  
+* [Määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)  
 * [Työaikakirjanpito](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/tyoaikakirjanpito.md)  
 * [Arkkitehtuuri](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/arkkitehtuuri.md)
 
@@ -10,6 +10,7 @@ Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan 
 [Käyttöohje](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/kayttoohje.md)
 ## Releaset
 [Viikko 5](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/viikko5)
+[Loppupalautus](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/loppupalautus)
 ## Komentorivikomennot
 ##### Testit ja testikattavuusraportti
 ```mvn test jacoco:report```
