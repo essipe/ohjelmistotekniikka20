@@ -1,6 +1,6 @@
 # Vaatimusmäärittely  
 ## Sovelluksen tarkoitus  
-Sovellus on Connect Four -peli, missä kaksi pelaajaa pelaavat toisiaan vastaan ja yrittävät yhdistää neljä saman väristä palaa joko pystyyn, vaakaan tai vinoon. Se kumpi saa ensimmäisenä neljän rivin, voittaa. 
+Sovellus on Neljän Suora -peli, missä kaksi pelaajaa pelaavat toisiaan vastaan ja yrittävät yhdistää neljä saman väristä palaa joko pystyyn, vaakaan tai vinoon. Se kumpi saa ensimmäisenä neljän rivin, voittaa. 
 ## Käyttöliittymäluonnos  
 Sovelluksessa on kaksi näkymää, päävalikko sekä pelinäkymä. Pelinäkymän sisällä on vielä erilaiset tilanteet voitolle ja tasapelille, joista molemmista kuitenkin pääsee takaisin pääalikkoon.
 ![](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/kuvat/kayttoliittymaluonnos.png)

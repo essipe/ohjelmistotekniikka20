@@ -221,7 +221,6 @@ public class Connect4UI extends Application {
         if (board.getWin()) {
             showGameOverText(1);
             try {
-                System.out.println(playerNames.get(board.getWinner()));
                 statsDao.writeWinner(playerNames.get(board.getWinner()));
             } catch (Exception ex) {
                 System.out.println(ex);

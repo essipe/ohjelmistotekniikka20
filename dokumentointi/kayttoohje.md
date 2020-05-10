@@ -1,5 +1,5 @@
 # Käyttöohje
-Ohjelma löytyy tiedostosta connect.jar. Lataa tämä.
+Ohjelma löytyy tiedostosta [connect.jar](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/loppupalautus). Lataa tämä.
 
 ### Käynnistys
 Ohjelma käynnistetään komennolla 

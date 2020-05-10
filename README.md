@@ -1,5 +1,5 @@
 # Connect Four
-Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan yrittäen saada ensimmäisenä neljä oman väristään nappulaa suoraan joko pystyyn, vaakaan tai viistoon. 
+Sovellus on Neljän Suora -peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan yrittäen saada ensimmäisenä neljä oman väristään nappulaa suoraan joko pystyyn, vaakaan tai viistoon. 
 
 ## Dokumentaatio  
 * [Määrittelydokumentti](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/vaatimusmaarittely.md)  
@@ -9,7 +9,7 @@ Sovellus on neljän suora- peli, jossa kaksi pelaajaa pelaavat toisiaan vastaan 
 ## Käyttöohje
 [Käyttöohje](https://github.com/essipe/ohjelmistotekniikka20/blob/master/dokumentointi/kayttoohje.md)
 ## Releaset
-[Viikko 5](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/viikko5)
+[Viikko 5](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/viikko5)  
 [Loppupalautus](https://github.com/essipe/ohjelmistotekniikka20/releases/tag/loppupalautus)
 ## Komentorivikomennot
 ##### Testit ja testikattavuusraportti
